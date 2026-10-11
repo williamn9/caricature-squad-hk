@@ -605,6 +605,21 @@ a {
   border-top: 1px solid var(--line);
 }
 
+.contact__primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact__handle {
+  margin: 0;
+  color: var(--mute);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
 .connect__links {
   display: flex;
   flex-wrap: wrap;
