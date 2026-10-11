@@ -154,7 +154,8 @@
           <span class="cal-cell__day">${day}</span>
           ${
             hasEvent
-              ? `<span class="cal-cell__time">${escapeHtml(dayEvents[0].time || "")}</span>
+              ? `<span class="cal-cell__pip" aria-hidden="true"></span>
+                 <span class="cal-cell__time">${escapeHtml(dayEvents[0].time || "")}</span>
                  <span class="cal-cell__dot">${escapeHtml(dayEvents[0].artist || "LIVE")}</span>
                  <span class="cal-cell__venue">${escapeHtml(venueLabel)}</span>`
               : ""

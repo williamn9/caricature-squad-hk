@@ -296,6 +296,7 @@ a {
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.03);
   overflow: hidden;
+  max-width: 100%;
 }
 
 .cal__toolbar {
@@ -336,25 +337,36 @@ a {
 
 .cal__weekdays {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 0.35rem;
   padding: 0.75rem 0.75rem 0.25rem;
   color: var(--mute);
   font-size: 0.8rem;
   text-align: center;
   letter-spacing: 0.06em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cal__weekdays > *,
+.cal__grid > * {
+  min-width: 0;
 }
 
 .cal__grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 0.35rem;
   padding: 0.35rem 0.75rem 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cal-cell {
   aspect-ratio: 1;
+  width: 100%;
   min-width: 0;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -366,7 +378,21 @@ a {
   color: var(--paper);
   cursor: default;
   padding: 0.2rem;
+  box-sizing: border-box;
+  /* Prevent iOS Safari button min-content width from blowing out the 7-col grid */
+  overflow: hidden;
+  -webkit-appearance: none;
+  appearance: none;
   transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.cal-cell__pip {
+  display: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--mint);
+  flex-shrink: 0;
 }
 
 .cal-cell.is-empty {
@@ -443,6 +469,10 @@ a {
 .cal-cell.is-selected .cal-cell__dot {
   background: var(--ink);
   color: var(--mint);
+}
+
+.cal-cell.is-selected .cal-cell__pip {
+  background: var(--ink);
 }
 
 .cal-cell:disabled:not(.has-event) {
@@ -562,19 +592,29 @@ a {
 @media (max-width: 640px) {
   .schedule .section__inner {
     width: 100%;
+    max-width: 100%;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+    box-sizing: border-box;
   }
 
   .partners__item {
     width: 100%;
+    box-sizing: border-box;
     border-radius: 14px;
+  }
+
+  .calendar {
+    max-width: 100%;
   }
 
   .cal {
     border-radius: 18px;
+    width: 100%;
   }
 
   .cal__toolbar {
-    grid-template-columns: 2.5rem 1fr 2.5rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr) 2.5rem;
     padding: 0.75rem 0.55rem;
   }
 
@@ -602,34 +642,30 @@ a {
 
   .cal-cell {
     aspect-ratio: 1;
-    min-height: 44px;
-    gap: 0.2rem;
+    min-height: 0;
+    gap: 0.15rem;
     border-radius: 10px;
-    padding: 0.2rem 0.05rem;
+    padding: 0.15rem 0.05rem;
   }
 
   .cal-cell__day {
     font-size: 1.05rem;
   }
 
-  /* Hide dense labels; show a clear event pip instead */
+  /* Hide dense labels; use a real pip (Safari-safe, not button::after) */
   .cal-cell__time,
   .cal-cell__dot,
   .cal-cell__venue {
     display: none;
   }
 
-  .cal-cell.has-event::after {
-    content: "";
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 50%;
-    background: var(--mint);
-    flex-shrink: 0;
+  .cal-cell.has-event .cal-cell__pip {
+    display: block;
   }
 
-  .cal-cell.is-selected.has-event::after {
-    background: var(--ink);
+  .cal-cell.has-event {
+    background: rgba(var(--mint-rgb), 0.18);
+    border-color: rgba(var(--mint-rgb), 0.55);
   }
 
   .cal-detail {
