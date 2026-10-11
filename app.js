@@ -1,13 +1,13 @@
 (function () {
   const calendar = document.getElementById("calendar");
   const yearEl = document.getElementById("year");
-  const bento = document.getElementById("bento");
+  const galleryGrid = document.getElementById("gallery-grid");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   // All compressed gallery photos: assets/photos/g01.jpeg … g60.jpeg
   const PHOTO_COUNT = 60;
-  if (bento) {
-    bento.innerHTML = Array.from({ length: PHOTO_COUNT }, (_, i) => {
+  if (galleryGrid) {
+    galleryGrid.innerHTML = Array.from({ length: PHOTO_COUNT }, (_, i) => {
       const n = String(i + 1).padStart(2, "0");
       return `
         <figure>
