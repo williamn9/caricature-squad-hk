@@ -329,7 +329,7 @@ a {
 .gallery__grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-auto-rows: 110px;
+  grid-auto-rows: 90px;
   gap: 0.7rem;
 }
 
@@ -339,12 +339,16 @@ a {
   border-radius: 18px;
   background: var(--paper-dim);
   min-height: 0;
+  /* Default portrait tile ~3:4 */
+  grid-column: span 2;
+  grid-row: span 3;
 }
 
 .gallery__grid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   transition: transform 0.6s var(--ease);
 }
 
@@ -352,39 +356,29 @@ a {
   transform: scale(1.05);
 }
 
-/* Bento rhythm — repeats every 10 cells */
-.gallery__grid figure:nth-child(10n + 1) {
-  grid-column: span 3;
+/* Bento rhythm — portrait tiles with a few taller hero cells */
+.gallery__grid figure:nth-child(8n + 1) {
+  grid-column: span 2;
+  grid-row: span 4;
+}
+
+.gallery__grid figure:nth-child(8n + 2),
+.gallery__grid figure:nth-child(8n + 3),
+.gallery__grid figure:nth-child(8n + 4) {
+  grid-column: span 2;
   grid-row: span 3;
 }
 
-.gallery__grid figure:nth-child(10n + 2),
-.gallery__grid figure:nth-child(10n + 3) {
-  grid-column: span 3;
-  grid-row: span 2;
-}
-
-.gallery__grid figure:nth-child(10n + 4),
-.gallery__grid figure:nth-child(10n + 5),
-.gallery__grid figure:nth-child(10n + 6) {
+.gallery__grid figure:nth-child(8n + 5) {
   grid-column: span 2;
-  grid-row: span 2;
+  grid-row: span 4;
 }
 
-.gallery__grid figure:nth-child(10n + 7) {
-  grid-column: span 4;
-  grid-row: span 2;
-}
-
-.gallery__grid figure:nth-child(10n + 8),
-.gallery__grid figure:nth-child(10n + 9) {
-  grid-column: span 3;
-  grid-row: span 2;
-}
-
-.gallery__grid figure:nth-child(10n + 10) {
-  grid-column: span 6;
-  grid-row: span 2;
+.gallery__grid figure:nth-child(8n + 6),
+.gallery__grid figure:nth-child(8n + 7),
+.gallery__grid figure:nth-child(8n + 8) {
+  grid-column: span 2;
+  grid-row: span 3;
 }
 
 .about {
@@ -494,26 +488,19 @@ a {
 
   .gallery__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 120px;
+    grid-auto-rows: 100px;
   }
 
+  .gallery__grid figure,
   .gallery__grid figure:nth-child(n) {
     grid-column: span 1;
-    grid-row: span 1;
+    grid-row: span 3;
   }
 
-  .gallery__grid figure:nth-child(6n + 1),
-  .gallery__grid figure:nth-child(6n + 4) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  .gallery__grid figure:nth-child(6n + 2),
-  .gallery__grid figure:nth-child(6n + 3),
-  .gallery__grid figure:nth-child(6n + 5),
-  .gallery__grid figure:nth-child(6n + 6) {
+  .gallery__grid figure:nth-child(4n + 1),
+  .gallery__grid figure:nth-child(4n + 3) {
     grid-column: span 1;
-    grid-row: span 1;
+    grid-row: span 4;
   }
 }
 
