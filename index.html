@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>香港有個似顏隊 · Caricature Squad HK</title>
+    <meta
+      name="description"
+      content="香港似顏繪創作者團隊。跟住日程到韓式炸雞店，免費現場似顏繪。Caricature Squad HK — free live caricatures."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="assets/logo.jpeg" />
+  </head>
+  <body>
+    <header class="nav">
+      <a class="nav__brand" href="#top">
+        <img src="assets/logo.jpeg" alt="" width="42" height="42" />
+        <span>CARICATURE SQUAD HK</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#schedule">日程</a>
+        <a href="#gallery">作品</a>
+        <a href="#about">關於</a>
+        <a class="nav__cta" href="#connect">Follow</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Hero">
+        <div class="hero__media">
+          <img
+            src="assets/photos/hero.jpeg"
+            alt="Caricature Squad HK artists drawing live"
+            width="1600"
+            height="1067"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero__shade" aria-hidden="true"></div>
+        <div class="hero__content">
+          <img
+            class="hero__logo"
+            src="assets/logo.jpeg"
+            alt="香港有個似顏隊 Caricature Squad HK logo"
+            width="220"
+            height="220"
+          />
+          <h1>
+            香港有個似顏隊
+            <span>CARICATURE SQUAD HK</span>
+          </h1>
+          <p class="hero__lead">
+            跟住日程到韓式炸雞店，現場免費似顏繪 — 笑住食雞，帶走一幅專屬你的畫。
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#schedule">睇下幾時去</a>
+            <a
+              class="btn btn--ghost"
+              href="https://www.instagram.com/caricaturesquadhk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Instagram</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section schedule" id="schedule">
+        <div class="section__inner">
+          <div class="section__head">
+            <h2>炸雞店免費似顏繪日程</h2>
+            <p>
+              藝術家會按以下時間到韓式炸雞店即場畫似顏繪。有興趣就跟住嚟，免費體驗。
+            </p>
+          </div>
+          <div class="calendar" id="calendar" aria-live="polite"></div>
+          <p class="schedule__note">
+            最後確認請睇
+            <a href="https://www.instagram.com/caricaturesquadhk/" target="_blank" rel="noopener noreferrer"
+              >Instagram</a
+            >
+            或
+            <a
+              href="https://www.facebook.com/profile.php?id=61594557152241"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Facebook</a
+            >
+            — 場地／時間或會微調。
+          </p>
+        </div>
+      </section>
+
+      <section class="section gallery" id="gallery">
+        <div class="section__inner">
+          <div class="section__head">
+            <h2>現場一刻</h2>
+            <p>筆下誇張、桌上炸雞、圍觀笑聲 — 似顏隊最鍾意喺城市角落同你相遇。</p>
+          </div>
+          <div class="gallery__grid" id="bento" aria-label="Photo gallery"></div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="section__inner">
+          <div class="section__head">
+            <h2>關於我們</h2>
+          </div>
+          <div class="about__copy">
+            <p>
+              我們是一群來自香港的似顏繪創作者，懷著一個簡單的使命：透過現場似顏繪，為大家帶來歡笑、開啟交流，並推廣這門獨特的藝術。
+            </p>
+            <p>
+              不論是在街頭巷尾、特色餐廳還是各類社區活動，我們最喜歡的就是結識新朋友。每一張面孔背後都有一個故事，而每一張畫作都是一次連結人心、分享快樂、留下珍貴回憶的機會。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section connect" id="connect">
+        <div class="section__inner">
+          <div class="section__head">
+            <h2>跟上似顏隊</h2>
+            <p>最新檔期、現場花絮、作品分享 — 喺社交平台見。</p>
+          </div>
+          <div class="connect__links">
+            <a
+              class="social"
+              href="https://www.instagram.com/caricaturesquadhk/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Instagram</strong>
+              <span>@caricaturesquadhk</span>
+            </a>
+            <a
+              class="social"
+              href="https://www.facebook.com/profile.php?id=61594557152241"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>Facebook</strong>
+              <span>香港有個似顏隊</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <span>© <span id="year"></span> 香港有個似顏隊 · Caricature Squad HK</span>
+        <span>笑住畫 · 畫住笑</span>
+      </div>
+    </footer>
+
+    <script src="schedule.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
