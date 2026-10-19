@@ -3,6 +3,7 @@
   const partnersEl = document.getElementById("partners");
   const yearEl = document.getElementById("year");
   const galleryGrid = document.getElementById("gallery-grid");
+  const artistsList = document.getElementById("artists-list");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   const PHOTO_COUNT = 60;
@@ -23,6 +24,8 @@
       `;
     }).join("");
   }
+
+  renderArtists();
 
   const partners = window.CARICATURE_PARTNERS || {};
 
@@ -271,6 +274,72 @@
       day: "numeric",
       weekday: "short",
     });
+  }
+
+  function renderArtists() {
+    if (!artistsList) return;
+    const artists = Array.isArray(window.CARICATURE_ARTISTS)
+      ? window.CARICATURE_ARTISTS
+      : [];
+    if (!artists.length) {
+      artistsList.innerHTML = `<p class="artists__empty">畫家名單即將更新。</p>`;
+      return;
+    }
+
+    artistsList.innerHTML = artists
+      .map((artist, index) => {
+        const name = artist.name || artist.nameEn || "Artist";
+        const nameEn =
+          artist.nameEn && artist.nameEn !== artist.name ? artist.nameEn : "";
+        const bio = artist.bio || "";
+        const photo = artist.photo || "assets/logo.jpeg";
+        const works = Array.isArray(artist.works) ? artist.works.filter(Boolean) : [];
+        const worksHtml = works
+          .map(
+            (src, i) => `
+              <figure class="artist__work">
+                <img
+                  src="${escapeAttr(src)}"
+                  alt="${escapeAttr(name)} sample work ${i + 1}"
+                  loading="lazy"
+                  decoding="async"
+                  width="640"
+                  height="640"
+                />
+              </figure>
+            `
+          )
+          .join("");
+
+        return `
+          <article class="artist" style="--artist-delay: ${index * 80}ms">
+            <div class="artist__intro">
+              <img
+                class="artist__photo"
+                src="${escapeAttr(photo)}"
+                alt="${escapeAttr(name)}"
+                width="160"
+                height="160"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="artist__meta">
+                <h3>
+                  ${escapeHtml(name)}
+                  ${nameEn ? `<span>${escapeHtml(nameEn)}</span>` : ""}
+                </h3>
+                ${bio ? `<p>${escapeHtml(bio)}</p>` : ""}
+              </div>
+            </div>
+            ${
+              worksHtml
+                ? `<div class="artist__works" aria-label="${escapeAttr(name)} sample works">${worksHtml}</div>`
+                : ""
+            }
+          </article>
+        `;
+      })
+      .join("");
   }
 
   function escapeHtml(value) {

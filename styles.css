@@ -705,6 +705,115 @@ a {
   }
 }
 
+.artists {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(var(--mint-rgb), 0.16), transparent 40%),
+    linear-gradient(180deg, #141018, #101010);
+}
+
+.artists__list {
+  display: grid;
+  gap: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.artists__empty {
+  margin: 0;
+  color: var(--mute);
+}
+
+.artist {
+  display: grid;
+  gap: 1.15rem;
+  padding-bottom: clamp(1.5rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--line);
+  animation: rise 0.7s var(--ease) both;
+  animation-delay: var(--artist-delay, 0ms);
+}
+
+.artist:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.artist__intro {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.25rem;
+  align-items: center;
+}
+
+.artist__photo {
+  width: clamp(88px, 16vw, 132px);
+  height: clamp(88px, 16vw, 132px);
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--mint);
+  box-shadow: 0 0 0 6px rgba(var(--mint-rgb), 0.12);
+}
+
+.artist__meta h3 {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3.5vw, 2.15rem);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+}
+
+.artist__meta h3 span {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mint);
+}
+
+.artist__meta p {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--mute);
+  font-size: 0.98rem;
+}
+
+.artist__works {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.artist__work {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+}
+
+.artist__work img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
+}
+
+.artist__work:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+@media (max-width: 640px) {
+  .artist__works {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+  }
+
+  .artist__work {
+    border-radius: 10px;
+  }
+}
+
 .gallery {
   background: var(--paper);
   color: var(--ink);
@@ -873,7 +982,9 @@ a {
   .hero h1,
   .hero__lead,
   .hero__cta,
-  .gallery__grid img {
+  .gallery__grid img,
+  .artist,
+  .artist__work img {
     animation: none !important;
     transition: none !important;
   }
