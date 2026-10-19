@@ -95,7 +95,7 @@
             const name = p.name || id;
             const nameEn = p.nameEn ? ` · ${escapeHtml(p.nameEn)}` : "";
             const maps = p.maps
-              ? `<a href="${escapeAttr(p.maps)}" target="_blank" rel="noopener noreferrer">地圖</a>`
+              ? `<a href="${escapeAttr(p.maps)}" target="_blank" rel="noopener noreferrer">地圖 Map</a>`
               : "";
             return `
               <li class="partners__item">
@@ -183,16 +183,16 @@
               <span class="cal-detail__time">${escapeHtml(event.time)}</span>
             </div>
             <div class="cal-detail__body">
-              <h3>${escapeHtml(event.venue || "合作場地")}</h3>
+              <h3>${escapeHtml(event.venue || "合作場地 · Partner venue")}</h3>
               <p class="cal-detail__location">地點 Location · ${locationHtml}</p>
-              <p>畫家 Artist · ${escapeHtml(event.artist || "TBA")}</p>
+              <p>隊員 Crew · ${escapeHtml(event.artist || "TBA")}</p>
               <p>${escapeHtml(event.note || "")}</p>
             </div>
           </article>
         `;
           })
           .join("")
-      : `<p class="cal-detail__empty">揀有標記嘅日子睇詳情：場地、時間同畫家。</p>`;
+      : `<p class="cal-detail__empty">揀有標記嘅日子睇詳情：場地、時間同隊員。<br />Pick a marked date for venue, time, and crew.</p>`;
 
     calendar.innerHTML = `
       <div class="cal">
@@ -282,60 +282,61 @@
       ? window.CARICATURE_ARTISTS
       : [];
     if (!artists.length) {
-      artistsList.innerHTML = `<p class="artists__empty">畫家名單即將更新。</p>`;
+      artistsList.innerHTML = `<p class="artists__empty">隊員名單即將更新。<br />Crew list coming soon.</p>`;
       return;
     }
 
+    const socialLabels = {
+      instagram: "IG",
+      facebook: "FB",
+      youtube: "YouTube",
+    };
+
     artistsList.innerHTML = artists
       .map((artist, index) => {
-        const name = artist.name || artist.nameEn || "Artist";
+        const name = artist.name || artist.nameEn || "Crew";
         const nameEn =
           artist.nameEn && artist.nameEn !== artist.name ? artist.nameEn : "";
         const bio = artist.bio || "";
         const photo = artist.photo || "assets/logo.jpeg";
-        const works = Array.isArray(artist.works) ? artist.works.filter(Boolean) : [];
-        const worksHtml = works
+        const socials = artist.socials && typeof artist.socials === "object" ? artist.socials : {};
+        const socialHtml = Object.entries(socialLabels)
+          .filter(([key]) => socials[key])
           .map(
-            (src, i) => `
-              <figure class="artist__work">
-                <img
-                  src="${escapeAttr(src)}"
-                  alt="${escapeAttr(name)} sample work ${i + 1}"
-                  loading="lazy"
-                  decoding="async"
-                  width="640"
-                  height="640"
-                />
-              </figure>
+            ([key, label]) => `
+              <a
+                class="artist__social artist__social--${escapeAttr(key)}"
+                href="${escapeAttr(socials[key])}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >${escapeHtml(label)}</a>
             `
           )
           .join("");
 
         return `
           <article class="artist" style="--artist-delay: ${index * 80}ms">
-            <div class="artist__intro">
-              <img
-                class="artist__photo"
-                src="${escapeAttr(photo)}"
-                alt="${escapeAttr(name)}"
-                width="160"
-                height="160"
-                loading="lazy"
-                decoding="async"
-              />
-              <div class="artist__meta">
-                <h3>
-                  ${escapeHtml(name)}
-                  ${nameEn ? `<span>${escapeHtml(nameEn)}</span>` : ""}
-                </h3>
-                ${bio ? `<p>${escapeHtml(bio)}</p>` : ""}
-              </div>
+            <img
+              class="artist__photo"
+              src="${escapeAttr(photo)}"
+              alt="${escapeAttr(name)}"
+              width="160"
+              height="160"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="artist__meta">
+              <h3>
+                ${escapeHtml(name)}
+                ${nameEn ? `<span>${escapeHtml(nameEn)}</span>` : ""}
+              </h3>
+              ${bio ? `<p>${escapeHtml(bio)}</p>` : ""}
+              ${
+                socialHtml
+                  ? `<div class="artist__socials" aria-label="${escapeAttr(name)} social links">${socialHtml}</div>`
+                  : ""
+              }
             </div>
-            ${
-              worksHtml
-                ? `<div class="artist__works" aria-label="${escapeAttr(name)} sample works">${worksHtml}</div>`
-                : ""
-            }
           </article>
         `;
       })

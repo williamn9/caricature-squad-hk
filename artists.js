@@ -1,43 +1,51 @@
 /**
- * Participating artists — profile + sample works.
- * Replace images under assets/artists/<id>/ when you have real portraits / pieces.
- * `name` should match calendar SUMMARY where possible (schedule artist field).
+ * Crew members — profile + optional social links.
+ * Only include social keys each person actually has (instagram / facebook / youtube).
+ * Replace photos under assets/artists/<id>/profile.jpeg (FB avatars cannot be hotlinked reliably).
+ * `name` should match calendar SUMMARY where possible.
  */
 window.CARICATURE_ARTISTS = [
   {
     id: "william",
     name: "William",
     nameEn: "William",
-    bio: "似顏隊成員，現場誇張筆觸、即場捕捉神韻。",
+    bio: "現場誇張筆觸、即場捕捉神韻。Bold strokes that catch your likeness in the moment.",
     photo: "assets/artists/william/profile.jpeg",
-    works: [
-      "assets/artists/william/work-01.jpeg",
-      "assets/artists/william/work-02.jpeg",
-      "assets/artists/william/work-03.jpeg",
-    ],
+    socials: {
+      youtube: "https://www.youtube.com/@williamngcaricature1074",
+      instagram: "https://www.instagram.com/william_is_online/",
+      facebook: "https://www.facebook.com/william.ng.593953",
+    },
   },
   {
     id: "ah-suet",
     name: "阿雪",
-    nameEn: "Ah Suet",
-    bio: "似顏隊成員，溫暖線條、畫出每位客人嘅獨特表情。",
+    nameEn: "Suet",
+    bio: "開心色彩、溫暖筆觸，畫出每位客人嘅笑容。Happy, colourful, and warm — drawings that feel like a smile.",
     photo: "assets/artists/ah-suet/profile.jpeg",
-    works: [
-      "assets/artists/ah-suet/work-01.jpeg",
-      "assets/artists/ah-suet/work-02.jpeg",
-      "assets/artists/ah-suet/work-03.jpeg",
-    ],
+    socials: {
+      instagram: "https://www.instagram.com/lowingsuet/",
+    },
   },
   {
     id: "wei-gor",
     name: "威哥",
-    nameEn: "Wei Gor",
-    bio: "似顏隊成員，現場互動強，笑住畫、畫住笑。",
+    nameEn: "Skywalker",
+    bio: "現場互動強，笑住畫、畫住笑。High-energy live drawing — laughs included.",
     photo: "assets/artists/wei-gor/profile.jpeg",
-    works: [
-      "assets/artists/wei-gor/work-01.jpeg",
-      "assets/artists/wei-gor/work-02.jpeg",
-      "assets/artists/wei-gor/work-03.jpeg",
-    ],
+    socials: {
+      instagram: "https://www.instagram.com/skywalker_yik/",
+    },
+  },
+  {
+    id: "mangor",
+    name: "文哥",
+    nameEn: "Mangor",
+    bio: "簡潔乾淨線條，簡單就最好睇。Simple, clean lines — clarity over clutter.",
+    photo: "assets/artists/mangor/profile.jpeg",
+    socials: {
+      instagram: "https://www.instagram.com/mangor_caricature/",
+    },
   },
 ];
+

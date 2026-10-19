@@ -163,7 +163,7 @@ a {
 
 .hero__lead {
   margin: 0;
-  max-width: 34rem;
+  max-width: 36rem;
   font-size: clamp(1rem, 2.2vw, 1.2rem);
   color: var(--mute);
   animation: rise 0.9s var(--ease) 0.16s both;
@@ -239,6 +239,16 @@ a {
 .section__head p {
   margin: 0;
   color: var(--mute);
+}
+
+.section__head p br,
+.hero__lead br,
+.schedule__note br,
+.artists__empty br,
+.cal-detail__empty br {
+  display: block;
+  content: "";
+  margin-top: 0.35em;
 }
 
 .schedule {
@@ -713,57 +723,58 @@ a {
 
 .artists__list {
   display: grid;
-  gap: clamp(2.2rem, 5vw, 3.4rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 1.75rem);
 }
 
 .artists__empty {
   margin: 0;
   color: var(--mute);
+  grid-column: 1 / -1;
 }
 
 .artist {
   display: grid;
-  gap: 1.15rem;
-  padding-bottom: clamp(1.5rem, 3vw, 2rem);
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.15rem;
+  align-items: center;
+  padding: 1.1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
   animation: rise 0.7s var(--ease) both;
   animation-delay: var(--artist-delay, 0ms);
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
-.artist:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.artist__intro {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem 1.25rem;
-  align-items: center;
+.artist:hover {
+  border-color: rgba(var(--mint-rgb), 0.55);
+  background: rgba(var(--mint-rgb), 0.07);
+  transform: translateY(-2px);
 }
 
 .artist__photo {
-  width: clamp(88px, 16vw, 132px);
-  height: clamp(88px, 16vw, 132px);
+  width: clamp(84px, 14vw, 112px);
+  height: clamp(84px, 14vw, 112px);
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--mint);
-  box-shadow: 0 0 0 6px rgba(var(--mint-rgb), 0.12);
+  box-shadow: 0 0 0 5px rgba(var(--mint-rgb), 0.12);
 }
 
 .artist__meta h3 {
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.35rem;
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3.5vw, 2.15rem);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
   letter-spacing: 0.02em;
   line-height: 1.05;
 }
 
 .artist__meta h3 span {
   display: block;
-  margin-top: 0.2rem;
+  margin-top: 0.15rem;
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -771,46 +782,41 @@ a {
 }
 
 .artist__meta p {
-  margin: 0;
-  max-width: 36rem;
+  margin: 0 0 0.7rem;
   color: var(--mute);
-  font-size: 0.98rem;
+  font-size: 0.9rem;
 }
 
-.artist__works {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
+.artist__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
-.artist__work {
-  margin: 0;
-  overflow: hidden;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
+.artist__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.85rem;
+  padding: 0.28rem 0.7rem;
   border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease);
 }
 
-.artist__work img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
+.artist__social:hover {
+  border-color: var(--mint);
+  background: rgba(var(--mint-rgb), 0.16);
+  color: var(--mint);
 }
 
-.artist__work:hover img {
-  transform: scale(1.04);
-  filter: brightness(1.05);
-}
-
-@media (max-width: 640px) {
-  .artist__works {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.45rem;
-  }
-
-  .artist__work {
-    border-radius: 10px;
+@media (max-width: 720px) {
+  .artists__list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -983,8 +989,7 @@ a {
   .hero__lead,
   .hero__cta,
   .gallery__grid img,
-  .artist,
-  .artist__work img {
+  .artist {
     animation: none !important;
     transition: none !important;
   }
