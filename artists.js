@@ -47,5 +47,16 @@ window.CARICATURE_ARTISTS = [
       instagram: "https://www.instagram.com/mangor_caricature/",
     },
   },
+  {
+    id: "edmond",
+    name: "Edmond",
+    nameEn: "Edmond",
+    bio: "幽默到越界，誇張到你又惱又笑。Humor that crosses the line — bold, cheeky, unforgettable.",
+    photo: "assets/artists/edmond/profile.jpeg",
+    socials: {
+      facebook: "https://www.facebook.com/edmond.tse.526875",
+    },
+  },
 ];
+
 

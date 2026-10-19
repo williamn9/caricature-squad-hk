@@ -9,6 +9,7 @@ Site copies (served): `website/assets/artists/<id>/profile.jpeg`
 | `suet.png` | ah-suet | 阿雪 / Suet |
 | `skywalker.png` | wei-gor | 威哥 / Skywalker |
 | `mangor.png` | mangor | 文哥 / Mangor |
+| `edmond.png` | edmond | Edmond |
 
 After updating a PNG in `photos/profile/`, re-export into `assets/artists/<id>/profile.jpeg` (or ask the agent to sync).
 
