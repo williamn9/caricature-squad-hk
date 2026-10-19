@@ -17,6 +17,7 @@ window.CARICATURE_PARTNERS = {
  * Synced from Google Calendar (per-event artist / time).
  * `partnerId` links to CARICATURE_PARTNERS — do not hardcode one venue in page copy.
  * Source: 香港有個似顏隊日程表 (Asia/Hong_Kong); ICS Z times converted to HKT.
+ * Last sync: 2026-10-19
  */
 window.CARICATURE_SCHEDULE = [
   {
@@ -41,9 +42,23 @@ window.CARICATURE_SCHEDULE = [
     note: "現場似顏繪 · Live caricature",
   },
   {
+    date: "2026-10-17",
+    time: "19:00–21:30",
+    artist: "Suet",
+    partnerId: "fried-chicken-daddy",
+    note: "現場似顏繪 · Live caricature",
+  },
+  {
     date: "2026-10-23",
     time: "19:00–21:30",
     artist: "William",
+    partnerId: "fried-chicken-daddy",
+    note: "現場似顏繪 · Live caricature",
+  },
+  {
+    date: "2026-10-24",
+    time: "19:00–21:30",
+    artist: "Suet",
     partnerId: "fried-chicken-daddy",
     note: "現場似顏繪 · Live caricature",
   },
