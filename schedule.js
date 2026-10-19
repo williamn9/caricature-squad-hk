@@ -30,7 +30,7 @@ window.CARICATURE_SCHEDULE = [
   {
     date: "2026-10-10",
     time: "19:00–21:30",
-    artist: "Suet",
+    artist: "阿雪",
     partnerId: "fried-chicken-daddy",
     note: "現場似顏繪 · Live caricature",
   },
@@ -44,7 +44,7 @@ window.CARICATURE_SCHEDULE = [
   {
     date: "2026-10-17",
     time: "19:00–21:30",
-    artist: "Suet",
+    artist: "阿雪",
     partnerId: "fried-chicken-daddy",
     note: "現場似顏繪 · Live caricature",
   },
@@ -58,7 +58,7 @@ window.CARICATURE_SCHEDULE = [
   {
     date: "2026-10-24",
     time: "19:00–21:30",
-    artist: "Suet",
+    artist: "阿雪",
     partnerId: "fried-chicken-daddy",
     note: "現場似顏繪 · Live caricature",
   },
