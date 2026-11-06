@@ -65,11 +65,9 @@ a {
 }
 
 .nav__brand img {
-  width: 42px;
-  height: 42px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid var(--mint);
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 
 .nav__links {
@@ -137,7 +135,7 @@ a {
 }
 
 .hero__logo {
-  width: min(220px, 52vw);
+  width: min(260px, 64vw);
   height: auto;
   filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.55));
   animation: rise 0.9s var(--ease) both;

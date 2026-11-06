@@ -298,7 +298,7 @@
         const nameEn =
           artist.nameEn && artist.nameEn !== artist.name ? artist.nameEn : "";
         const bio = artist.bio || "";
-        const photo = artist.photo || "assets/logo.jpeg";
+        const photo = artist.photo || "assets/logo.png";
         const socials = artist.socials && typeof artist.socials === "object" ? artist.socials : {};
         const socialHtml = Object.entries(socialLabels)
           .filter(([key]) => socials[key])
