@@ -77,6 +77,13 @@ window.CARICATURE_SCHEDULE = [
     note: "現場似顏繪 · Live caricature",
   },
   {
+    date: "2026-11-07",
+    time: "19:00–21:30",
+    artist: "阿雪",
+    partnerId: "fried-chicken-daddy",
+    note: "現場似顏繪 · Live caricature",
+  },
+  {
     date: "2026-11-13",
     time: "19:00–21:30",
     artist: "William",
@@ -91,9 +98,23 @@ window.CARICATURE_SCHEDULE = [
     note: "現場似顏繪 · Live caricature",
   },
   {
+    date: "2026-11-21",
+    time: "19:00–21:30",
+    artist: "阿雪",
+    partnerId: "fried-chicken-daddy",
+    note: "現場似顏繪 · Live caricature",
+  },
+  {
     date: "2026-11-27",
     time: "19:00–21:30",
     artist: "威哥",
+    partnerId: "fried-chicken-daddy",
+    note: "現場似顏繪 · Live caricature",
+  },
+  {
+    date: "2026-11-29",
+    time: "19:00–21:30",
+    artist: "阿雪",
     partnerId: "fried-chicken-daddy",
     note: "現場似顏繪 · Live caricature",
   },
