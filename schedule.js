@@ -9,7 +9,7 @@ window.CARICATURE_PARTNERS = {
     name: "大門炸雞",
     nameEn: "Fried Chicken Daddy",
     location: "Fried Chicken Daddy, 95號 Cha Kwo Ling Rd, Lam Tin, Kowloon, Hong Kong",
-    maps: "https://maps.app.goo.gl/STsDxx1gQRaQai3z8",
+    maps: "https://maps.app.goo.gl/aE6nt1Sw9aVbkaPSA",
   },
 };
 
